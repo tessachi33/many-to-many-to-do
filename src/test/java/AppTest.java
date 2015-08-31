@@ -36,19 +36,19 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("dog");
   }
 
-  // @Test
-  // public void allTasksDisplayDescriptionOnCategoryPage() {
-  //   Category myCategory = new Category("Banking");
-  //   myCategory.save();
-  //   Task firstTask = new Task("Steal money", myCategory.getId());
-  //   firstTask.save();
-  //   Task secondTask = new Task("Steal more money", myCategory.getId());
-  //   secondTask.save();
-  //   String categoryPath = String.format("http://localhost:4567/categories/%d", myCategory.getId());
-  //   goTo(categoryPath);
-  //   assertThat(pageSource()).contains("Steal money");
-  //   assertThat(pageSource()).contains("Steal more money");
-  // }
+  @Test
+  public void allTasksDisplayDescriptionOnCategoryPage() {
+    Category myCategory = new Category("Banking");
+    myCategory.save();
+    Task firstTask = new Task("Steal money");
+    firstTask.save();
+    Task secondTask = new Task("Steal more money");
+    secondTask.save();
+    String categoryPath = String.format("http://localhost:4567/categories/1");
+    goTo(categoryPath);
+    assertThat(pageSource()).contains("Steal money");
+    assertThat(pageSource()).contains("Steal more money");
+  }
   //
   // @Test
   // public void categoryIsDeleted() {
