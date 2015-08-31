@@ -28,14 +28,14 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("To Do List");
   }
 
-  // @Test
-  // public void categoryIsDisplayedWhenCreated() {
-  //   goTo("http://localhost:4567/");
-  //   fill("#name").with("Morping");
-  //   submit(".submit-name");
-  //   assertThat(pageSource()).contains("Morping");
-  // }
-  //
+  @Test
+  public void categoryIsDisplayedWhenCreated() {
+    goTo("http://localhost:4567/categories");
+    fill("#name").with("dog");
+    submit(".submit");
+    assertThat(pageSource()).contains("dog");
+  }
+
   // @Test
   // public void allTasksDisplayDescriptionOnCategoryPage() {
   //   Category myCategory = new Category("Banking");
