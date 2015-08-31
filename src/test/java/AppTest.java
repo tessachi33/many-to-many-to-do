@@ -49,6 +49,17 @@ public class AppTest extends FluentTest{
     assertThat(pageSource()).contains("Steal money");
     assertThat(pageSource()).contains("Steal more money");
   }
+
+  @Test
+  public void addTaskToCategory() {
+  Category myCategory = new Category("Banking");
+  myCategory.save();
+  Task firstTask = new Task("Steal money");
+  firstTask.save();
+  goTo("http://localhost:4567/categories/1");
+  select("#task_id").with("1");
+  assertThat(pageSource()).contains("Steal money");
+  }
   //
   // @Test
   // public void categoryIsDeleted() {
